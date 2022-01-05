@@ -1,0 +1,39 @@
+version: "3.5"
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    image:  frontend_image
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+  backend:
+    build: ./backend
+    container_name: backend
+    image: backend_image
+    depends_on:
+      - mysqlDB
+    links:
+    - mysqlDB:mysqlDB  
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/usr/src/app
+  mysqlDB:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'mysqlDB'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'user'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'password'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - "3000:3306"
+    volumes:
+      - my-data:/var/lib/mysql
+volumes:
+  my-data:
