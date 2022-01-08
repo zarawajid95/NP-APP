@@ -2,7 +2,7 @@
 var dbConn = require('../../config/dbConfig');
 
 var Budget = function(b){
-    this.budget = b.budget;
+    this.budget_val = b.budget;
     this.trip_id = b.trip_id;
 }
 
