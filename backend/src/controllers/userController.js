@@ -14,8 +14,12 @@ exports.find = function(req, res) {
     else{
     console.log(user)
     res.header('Access-Control-Allow-Credentials', true)
+    res.header(
+      'Access-Control-Allow-Headers',
+      '*'
+    )
     res.cookie('UserID', user, {
-      httpOnly: false, // try this
+      httpOnly: false,
       sameSite:'none',
       secure: true
   })

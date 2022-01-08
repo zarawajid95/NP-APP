@@ -1,6 +1,7 @@
 /* eslint-disable */
 import axios from 'axios'
-const baseUrl = 'https://localhost:5000/api/v1/register'
+const ip = "54.245.47.192"
+const baseUrl = 'https://'+ip+':5000/api/v1/register'
 
 const register = async user => {
   console.log("came here in register")

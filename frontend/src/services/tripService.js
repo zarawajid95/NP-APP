@@ -1,12 +1,14 @@
 /* eslint-disable */
 import axios from 'axios'
-const baseUrl = 'https://localhost:5000/api/v1/info'
-const tripInfoUrl = 'https://localhost:5000/api/v1/tripInfo'
-const attractionUrl = 'https://localhost:5000/api/v1/attraction'
-const hotelUrl = 'https://localhost:5000/api/v1/hotel'
-const noteUrl = 'https://localhost:5000/api/v1/note'
-const restaurantUrl = 'https://localhost:5000/api/v1/restaurant'
-const budgetUrl = 'https://localhost:5000/api/v1/budget'
+const ip = "54.245.47.192"
+const baseUrl = 'https://'+ip+':5000/api/v1/'
+const infoUrl = baseUrl+'/info'
+const tripInfoUrl = baseUrl+'/tripInfo'
+const attractionUrl = baseUrl+'/attraction'
+const hotelUrl = baseUrl+'/hotel'
+const noteUrl = baseUrl+'/note'
+const restaurantUrl = baseUrl+'/restaurant'
+const budgetUrl = baseUrl+'/budget'
 
 
 const getTripInfo = async (trip_id) => {
@@ -16,7 +18,7 @@ const getTripInfo = async (trip_id) => {
   return response.data
 }
 const getInfo = async (id, option) => {
-  const response = await axios.get(baseUrl+"?info="+option+"&id="+id, {withCredentials: true})
+  const response = await axios.get(infoUrl+"?info="+option+"&id="+id, {withCredentials: true})
   return response.data
 }
 

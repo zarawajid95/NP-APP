@@ -1,13 +1,15 @@
 /* eslint-disable */
 import axios from 'axios'
-const baseUrl = 'https://localhost:5000/api/v1/forecast'
-const destinationUrl = 'https://localhost:5000/api/v1/destination'
-const usernameUrl = 'https://localhost:5000/api/v1/username'
+const ip = "54.245.47.192"
+const baseUrl = 'https://'+ip+':5000/api/v1/'
+const forcastUrl = baseUrl+'/forecast'
+const destinationUrl =  baseUrl+'/destination'
+const usernameUrl =  baseUrl+'/username'
 
 
 const checkWeather = async data => {
   console.log(data);
-  const response = await axios.post(baseUrl, data, {
+  const response = await axios.post(forcastUrl, data, {
     withCredentials: true,
   })
   return response.data
