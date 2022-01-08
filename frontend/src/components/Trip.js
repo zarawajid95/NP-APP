@@ -74,9 +74,9 @@ const options = [
 ]
 
 useEffect(async () => {
-    if(!Cookies.get('UserID')){
-      navigate('/')
-    }
+    // if(!Cookies.get('UserID')){
+    //   navigate('/')
+    // }
     let id = localStorage.getItem("trip_id")
     setTripId(id)
     const tripInfo = await tripService.getTripInfo(id)
