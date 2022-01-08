@@ -21,7 +21,8 @@ exports.find = function(req, res) {
     res.cookie('UserID', user, {
       httpOnly: false,
       sameSite:'none',
-      secure: true
+      secure: true,
+      maxAge:'3600000'
   })
     res.json(user);
     }
