@@ -8,6 +8,8 @@ services:
       - "3001:3000"
     volumes:
       - ./frontend:/usr/src/app
+    environment:
+      WAIT_HOSTS: mysqlDB:3000, backend:5000
   backend:
     build: ./backend
     container_name: backend
