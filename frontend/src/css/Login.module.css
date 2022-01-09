@@ -59,6 +59,7 @@ div {
 
 #centerinfo {
   margin-left: 32%;
+  color: #4d4e83;
 }
 
 #forcast {
@@ -67,6 +68,14 @@ div {
  text-align:center; 
  border: thick double #32a1ce;
 }
+
+
+#error {
+  margin: 0px 0px;
+  color: red;
+  text-align:center; 
+  /* border: thick double red; */
+ }
 
 #logout {
   border: 2px solid #4d4e83 ;

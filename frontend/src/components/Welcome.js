@@ -72,7 +72,7 @@ const Welcome = () => {
         <div>
             <h3 id={styles.logout} onClick={logout}>Logout</h3>
             <h1 id={styles.centerh} id={styles.movedown}>Welcome {username}</h1>
-            <h2  id={styles.centerh}>Check the next 4 days weahter forecast of you desired destination</h2>
+            <h2  id={styles.centerh}>Check the next 4 days weather forecast of you desired destination</h2>
 
             <div>
              { averagTemp && <h3 id={styles.forcast}> The average temp for the next 4 days is {averagTemp}<sup>o</sup>c </h3>}

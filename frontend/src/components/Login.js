@@ -8,6 +8,7 @@ const Login = () => {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMsg, seterrorMsg] = useState('')
 
   const handleUsernameChange=({ target }) => setUsername(target.value)
 
@@ -27,16 +28,19 @@ const Login = () => {
         console.log(user);
         setUsername('')
         setPassword('')
-        if(user){
+        if(user === 'NOT_FOUND'){
+          seterrorMsg('Invalid Username or Password!')
+        }
+        else if(user !== 'NOT_FOUND'){
           navigate("/welcome");
+          seterrorMsg('')
         // window.open(`/welcome`); 
-        }
-        else{
+      }
+      else{
           navigate("/");
+          seterrorMsg('')
           // window.open(`/`); 
-        }
-        
-        // redirect to main page
+        }  
       }
      
     } catch (exception) {
@@ -46,6 +50,7 @@ const Login = () => {
 
   return (
     <div className={styles.div}>
+      {errorMsg && <h3 id={styles.error}> {errorMsg}</h3>}
       <form onSubmit={handleLogin}>
         <div>
           <b>username</b>

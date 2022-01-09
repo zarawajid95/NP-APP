@@ -36,7 +36,8 @@ const submitHotel = async (event) => {
     const hotel = await tripService.saveHotel({name, address, rent, startDate, endDate, bookingCode, trip_id})
     console.log(hotel)     
     dispatch(AddHotel({name, address, rent, startDate, endDate, bookingCode }))
-    dispatch(showHList())
+    window.location.reload(false);
+    // dispatch(showHList())
   } catch (exception) {
     console.log(exception)
   }

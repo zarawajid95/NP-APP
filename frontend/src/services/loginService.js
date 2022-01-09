@@ -11,7 +11,7 @@ let axiosConfig = {
 
 const login = async credentials => {
   const response = await axios.post(baseUrl, credentials, axiosConfig)
-  console.log(response)
+  // console.log(response)
   return response.data
 }
 export default {login}

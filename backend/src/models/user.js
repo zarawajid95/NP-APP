@@ -19,8 +19,23 @@ User.find = function (username, password, result) {
             result(null, err);
         }
         else{
-            console.log('users : ', res[0].id);  
-            result(null, res[0].id);
+            if(res){
+                console.log("res is:",res);
+                // if(res === []){
+                //     console.log('i came in this one')
+                //     result(null, 'NOT_FOUND');
+                // }
+                console.log('users : ', res[0]);  
+                if(res[0])
+                {
+                    result(null, res[0].id);
+                }
+                else
+                {
+                    result(null, 'NOT_FOUND');
+                }
+        
+            }
         }
     });   
 };

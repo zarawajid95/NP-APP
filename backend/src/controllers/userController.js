@@ -8,10 +8,13 @@ exports.find = function(req, res) {
   const password = req.body.password
   User.find(username, password, function(err, user) {
     console.log(' finding user')
-    if (err){
+  if (err){
       console.log(err);
-    }
-    else{
+  }
+  else if(user == 'NOT_FOUND'){
+    res.json(user);
+  }
+  else{
     console.log(user)
     res.header('Access-Control-Allow-Credentials', true)
     res.header(
@@ -22,9 +25,9 @@ exports.find = function(req, res) {
       httpOnly: false,
       sameSite:'none',
       secure: true
-  })
+    })
     res.json(user);
-    }
+  }
   });
 };
 

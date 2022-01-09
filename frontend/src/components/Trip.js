@@ -120,6 +120,7 @@ const submitRestaurant = async (event) => {
     const info = await tripService.getInfo(trip_id, option)
     setRestaurants(info)
     setshowRestaurantForm(false)
+    setshowRestaurantList(true)
   } catch (exception) {
     console.log(exception)
   }
@@ -133,6 +134,7 @@ const submitNote = async (event) => {
     const info = await tripService.getInfo(trip_id, option)
     setNotes(info)
     setshowNotesForm(false)
+    setshowNoteList(true)
   } catch (exception) {
     console.log(exception)
   }
@@ -187,7 +189,6 @@ const handleInfo = async (event) => {
       }
     } 
     if(option == 'hotel'){
-      
       //setHotels(info)
       console.log(info)
       if(info.length == 0){
@@ -201,8 +202,8 @@ const handleInfo = async (event) => {
         setshowNoteList(false)
         setshowNotesForm(false)
         setshowBudgetForm(false)
-        dispatch(showHotelForm())
-        dispatch(hideHotelList())
+        // dispatch(showHotelForm())
+        // dispatch(hideHotelList())
       }
       else {
       console.log(info)
