@@ -17,9 +17,9 @@ const Destination = () => {
 
 
     useEffect(async () => {
-        // if(!Cookies.get('UserID')){
-        //     navigate('/')
-        // }
+        if(!Cookies.get('UserID')){
+            navigate('/')
+        }
         const destinations = await welcomeService.getDestinations()
         console.log(destinations)
         setDestinations(destinations)

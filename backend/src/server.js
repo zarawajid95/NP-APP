@@ -21,7 +21,8 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors(
   {
-    origin: 'http://54.245.47.192:3001',
+    // origin: 'http://54.245.47.192:3001',
+    origin: 'http://localhost:3002',
     credentials: true
   }
 ))// parse requests of content-type - application/json

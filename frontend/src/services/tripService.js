@@ -1,8 +1,10 @@
 /* eslint-disable */
 import axios from 'axios'
-const ip = "54.245.47.192"
+// const ip = "54.245.47.192"
+const ip = "localhost"
 const baseUrl = 'https://'+ip+':5000/api/v1/'
 const infoUrl = baseUrl+'/info'
+const delUrl = baseUrl+'/delete'
 const tripInfoUrl = baseUrl+'/tripInfo'
 const attractionUrl = baseUrl+'/attraction'
 const hotelUrl = baseUrl+'/hotel'
@@ -61,4 +63,10 @@ const saveBudget = async data => {
   })
   return response.data
 }
-export default {getTripInfo, getInfo, saveAttraction, saveHotel, saveRestaurant, saveNote, saveBudget}
+
+const deleteEntry = async (table, id, trip_id) => {
+  console.log("I am called service")
+  const response = await axios.get(delUrl+"?table="+table+"&id="+id+"&trip_id="+trip_id, {withCredentials: true})
+  return response.data
+}
+export default {getTripInfo, getInfo, saveAttraction, saveHotel, saveRestaurant, saveNote, saveBudget, deleteEntry}

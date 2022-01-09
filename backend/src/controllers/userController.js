@@ -21,8 +21,7 @@ exports.find = function(req, res) {
     res.cookie('UserID', user, {
       httpOnly: false,
       sameSite:'none',
-      secure: true,
-      maxAge:'3600000'
+      secure: true
   })
     res.json(user);
     }
@@ -38,8 +37,8 @@ exports.register = function (req, res) {
         console.log(err);
       }
       else{
-      var cookie = getcookie(req.headers.cookie)
-      console.log(cookie)
+      // var cookie = getcookie(req.headers.cookie)
+      // console.log(cookie)
       console.log(user)
       res.json(user);
       }

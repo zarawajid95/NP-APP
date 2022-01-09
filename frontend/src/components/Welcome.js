@@ -17,9 +17,9 @@ const Welcome = () => {
 
     
     useEffect(async () => {
-        // if(!Cookies.get('UserID')){
-        //     navigate('/')
-        // }
+        if(!Cookies.get('UserID')){
+            navigate('/')
+        }
         const username = await welcomeService.getUserName()
         console.log(username)
         setUsername(username)

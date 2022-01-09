@@ -11,6 +11,7 @@ router.post('/hotel', trip.saveHotel)
 router.post('/restaurant', trip.saveRestaurant)
 router.post('/note', trip.saveNote)
 router.post('/budget', trip.saveBudget)
+router.get('/delete', trip.deleteEntry)
 
 
 module.exports = router

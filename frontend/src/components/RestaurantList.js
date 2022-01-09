@@ -1,8 +1,20 @@
 /* eslint-disable */
 import React from 'react'
 import styles from "../css/Login.module.css";
+import tripService from '../services/tripService'
 
-const RestaurantList = ({restaurants, showRstForm}) => {
+
+const RestaurantList = ({restaurants, showRstForm, trip_id}) => {
+
+  const deleteRst = async (id) => {
+    console.log(id)
+    const deleted = await tripService.deleteEntry("restaurant", id, trip_id)
+    console.log(deleted)
+    if(deleted){
+      window.location.reload(false);
+    }
+  }
+
   return (
    <div>
       <br></br>
@@ -13,6 +25,7 @@ const RestaurantList = ({restaurants, showRstForm}) => {
                     <th>Name</th>
                     <th>Address</th>
                     <th>Date</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -21,6 +34,7 @@ const RestaurantList = ({restaurants, showRstForm}) => {
                         <td>{a.name}</td>
                         <td>{a.address}</td>
                         <td>{a.date}</td>
+                        <td><button id={styles.delete} onClick={() => deleteRst(a.id)}>Delete</button></td>
                     </tr>
                 )}
                 </tbody>

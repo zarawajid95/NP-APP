@@ -32,6 +32,21 @@ exports.info = function(req, res) {
    });
  };
 
+
+ exports.deleteEntry = function(req, res) {
+  console.log('i came in delete Entry controller')
+  const table = req.query.table
+  const trip_id = req.query.trip_id
+  const id = req.query.id
+  const user_id = getIdfromcookie(req.headers.cookie)
+  Trip.deleteEntry(table, user_id, id, trip_id, function(err, dst) {
+     if(!err){
+       console.log(dst);
+       res.json(true)
+     }
+   });
+ };
+
 exports.saveAttraction = async (req, res) => {
   const user_id = getIdfromcookie(req.headers.cookie)
   console.log("user id", user_id)

@@ -1,15 +1,15 @@
 version: "3.5"
 services:
-  frontend:
-    build: ./frontend
-    container_name: frontend
-    image:  frontend_image
-    ports:
-      - "3001:3000"
-    volumes:
-      - ./frontend:/usr/src/app
-    environment:
-      WAIT_HOSTS: mysqlDB:3000, backend:5000
+  # frontend:
+  #   build: ./frontend
+  #   container_name: frontend
+  #   image:  frontend_image
+  #   ports:
+  #     - "3001:3000"
+  #   volumes:
+  #     - ./frontend:/usr/src/app
+  #   environment:
+  #     WAIT_HOSTS: mysqlDB:3000, backend:5000
   backend:
     build: ./backend
     container_name: backend

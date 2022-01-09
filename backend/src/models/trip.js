@@ -68,4 +68,24 @@ Trip.getInfo = function(info, user_id, trip_id, result){
         }
     });  
 }
+
+Trip.deleteEntry = function(table, user_id, id, trip_id, result){
+    const UID = parseInt(user_id)
+    const TID = parseInt(trip_id)
+    const ID = parseInt(id)
+    console.log(user_id)
+    console.log(trip_id)
+    console.log(table)
+    console.log(id)
+    dbConn.query("delete from "+table+" where user_id = ? AND trip_id = ? AND id= ?",[UID, TID, ID], function (err, res) {
+        if(err) {
+            console.log("error: ", err);
+            result(err, null);
+        }
+        else{
+            console.log("response",res.insertId);
+            result(null, res.insertId);
+        }
+    });  
+}
 module.exports = Trip;

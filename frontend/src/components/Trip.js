@@ -74,9 +74,9 @@ const options = [
 ]
 
 useEffect(async () => {
-    // if(!Cookies.get('UserID')){
-    //   navigate('/')
-    // }
+    if(!Cookies.get('UserID')){
+      navigate('/')
+    }
     let id = localStorage.getItem("trip_id")
     setTripId(id)
     const tripInfo = await tripService.getTripInfo(id)
@@ -350,13 +350,13 @@ return (
     {showAttractionForm == true && <AttractionsForm handleDateChange={handleDateChange} 
     handleNameChange={handleNameChange} SubmitAttraction={SubmitAttraction} name={name} date={date}/> }
     {showHotelForm == true && <HotelForm trip_id={trip_id} /> }
-    {showHotelList == true && <HotelList showHotelFormHandler={showHotelFormHandler}/>}
-    {attractions.length > 0 && showAttractionList == true  && <AttractionsList attractions={attractions} showAttrForm={showAttrForm} /> } 
+    {showHotelList == true && <HotelList showHotelFormHandler={showHotelFormHandler} trip_id={trip_id}/>}
+    {attractions.length > 0 && showAttractionList == true  && <AttractionsList attractions={attractions} showAttrForm={showAttrForm} trip_id={trip_id} /> } 
     {showRestaurantForm == true && <RestaurantForm handleDateChange={handleDateChange} 
     handleNameChange={handleNameChange} handleAddressChange={handleAddressChange} submitRestaurant={submitRestaurant} name={name} date={date} address={address}/> }
     {showNotesForm == true && <NoteForm handleNoteChange={handleNoteChange} submitNote={submitNote} note={note}/> }
-    {showRestaurantList == true && <RestaurantList restaurants={restaurants} showRstForm={showRstForm}/> }
-    {showNoteList == true && <NotesList notes={notes} showNotesForm={showNoteForm}/> }
+    {showRestaurantList == true && <RestaurantList restaurants={restaurants} showRstForm={showRstForm} trip_id={trip_id}/> }
+    {showNoteList == true && <NotesList notes={notes} showNotesForm={showNoteForm} trip_id={trip_id}/> }
     {showBudgetForm == true && <BudgetForm handleBudgetChange={handleBudgetChange} submitBudget={submitBudget} budget={budget} />}
 
   </div>

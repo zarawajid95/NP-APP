@@ -1,7 +1,8 @@
 /* eslint-disable */
 
 import axios from 'axios'
-const ip = "54.245.47.192"
+// const ip = "54.245.47.192"
+const ip = "localhost"
 const baseUrl = 'https://'+ip+':5000/api/v1/login'
 
 let axiosConfig = {
